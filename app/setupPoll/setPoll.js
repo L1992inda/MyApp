@@ -10,6 +10,8 @@ import { ImageUrl } from '../menuPage/imageURL';
 import Divider from '@mui/material/Divider';
 import RemoveCircleOutlineTwoToneIcon from '@mui/icons-material/RemoveCircleOutlineTwoTone';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
+import Grid from '@mui/material/Grid';
+
 
 export default function SetquestionsAndAnswers() {
   const [inputFields, setInputFields] = useState([
@@ -79,11 +81,12 @@ export default function SetquestionsAndAnswers() {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <Box>
+      <Grid container justifyContent="center">
+        <Grid item xs={12} md={8}>
         <Card
           sx={{
-            width: 700,
-            height: 600,
+            width: '100%',
+            height: '100%',
             pt: 1,
             pr: 6,
             pl: 6,
@@ -168,8 +171,8 @@ export default function SetquestionsAndAnswers() {
         >
           Sumbit
         </Button>
-      
-      </Box>
+        </Grid>
+      </Grid>
     </Box>
   );
 }

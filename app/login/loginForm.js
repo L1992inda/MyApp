@@ -60,7 +60,6 @@ export default function SignIn() {
 
               <Button
                 type="submit"
-                fullWidth
                 variant="contained"
                 sx={{
                   fontFamily: 'Verdana, Arial, Helvetica, sans-serif',
