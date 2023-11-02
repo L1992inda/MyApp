@@ -36,4 +36,14 @@ next-env.d.ts
 
 #husky
 .husky
- 
+
+#public
+.next.svg
+vercel.svg
+
+
+.eslintrc.json
+
+.prettierrc.json
+
+.README.md

@@ -1,11 +1,11 @@
 'use client';
 import * as React from 'react';
-import SignIn from './login/loginForm';
+import LoginForm from './login/loginForm';
 
 export default function Page() {
   return (
     <div>
-      <SignIn />
+      <LoginForm />
     </div>
   );
 }

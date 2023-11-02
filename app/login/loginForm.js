@@ -7,7 +7,7 @@ import Grid from '@mui/material/Grid';
 
 import { ImageUrl } from '../menuPage/imageURL';
 
-export default function SignIn() {
+export default function LoginForm() {
   return (
     <Box
       sx={{

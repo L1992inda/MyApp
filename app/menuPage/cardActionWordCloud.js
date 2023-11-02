@@ -8,7 +8,7 @@ import { ImageUrl } from './imageURL';
 export default function CardActionWordCloud() {
   return (
     <Card sx={{ maxWidth: 240, borderRadius: 4, boxShadow: 20 }}>
-      <CardActionArea href="./wordCloud" sx={{ backgroundColor: '#fffcf6' }}>
+      <CardActionArea href="./wordCloudPage" sx={{ backgroundColor: '#fffcf6' }}>
         <CardMedia component="img" height="90" image={ImageUrl} alt="Image" />
         <CardContent>
           <Typography sx={{ p: 2 }} gutterBottom variant="h5" component="div">

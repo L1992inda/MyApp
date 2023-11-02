@@ -10,8 +10,6 @@ import { ImageUrl } from '../menuPage/imageURL';
 import Divider from '@mui/material/Divider';
 import RemoveCircleOutlineTwoToneIcon from '@mui/icons-material/RemoveCircleOutlineTwoTone';
 import AddCircleOutlineOutlinedIcon from '@mui/icons-material/AddCircleOutlineOutlined';
-import Grid from '@mui/material/Grid';
-
 
 export default function SetquestionsAndAnswers() {
   const [inputFields, setInputFields] = useState([
@@ -54,8 +52,8 @@ export default function SetquestionsAndAnswers() {
     if (updatedInputFields[questionIndex].answers.length > 1) {
       updatedInputFields[questionIndex].answers.pop();
       setInputFields(updatedInputFields);
-   
-  }};
+    }
+  };
   const removeQuestionField = () => {
     const updatedInputFields = [...inputFields];
     if (updatedInputFields.length > 1) {
@@ -63,7 +61,7 @@ export default function SetquestionsAndAnswers() {
       setInputFields(updatedInputFields);
     }
   };
-  
+
   const showquestionButton = () => {
     return inputFields.length < 6;
   };
@@ -81,12 +79,11 @@ export default function SetquestionsAndAnswers() {
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <Grid container justifyContent="center">
-        <Grid item xs={12} md={8}>
+      <Box>
         <Card
           sx={{
-            width: '100%',
-            height: '100%',
+            width: 700,
+            height: 600,
             pt: 1,
             pr: 6,
             pl: 6,
@@ -116,7 +113,7 @@ export default function SetquestionsAndAnswers() {
               style={{
                 display: currentTab === questionIndex ? 'block' : 'none',
               }}
-            >  
+            >
               <Input
                 sx={{ mt: 2, mb: 3 }}
                 multiline
@@ -126,53 +123,65 @@ export default function SetquestionsAndAnswers() {
                 value={field.question}
                 placeholder="Add question"
                 onChange={(e) => updateQuestion(questionIndex, e.target.value)}
-              /> <AddCircleOutlineOutlinedIcon color="info" onClick={addQuestionField} sx={{mr:2,display: showquestionButton() ? 'hide' : 'none'}}/>
-              <RemoveCircleOutlineTwoToneIcon color="info" onClick={removeQuestionField}/>
-              {field.answers.map((answer, answerIndex) => (
-                <Box sx={{ ml: 3,mt: 4 }} key={answerIndex}>
-                  <Typography sx={{ fontSize: 14 }}>{`Answer ${
-                    answerIndex + 1
-                  }`}</Typography>
-                  <Input
-                    sx={{ fontSize: 16, mb: 3, mt: 1, width: 300 }}
-                    multiline
-                    minRows={1}
-                    maxRows={10}
-                    fullWidth={false}
-                    value={answer}
-                    placeholder="Add answer"
-                    onChange={(e) =>
-                      updateAnswer(questionIndex, answerIndex, e.target.value)
-                    }
-                  />
-                </Box>
-              ))}
+              />{' '}
               <AddCircleOutlineOutlinedIcon
-                color='info'
-                sx={{
-                  ml: 3,mr:2,
-                  display: showAnswerButton(questionIndex) ? 'hide' : 'none',
-                }}
-                variant="outlined"
-                onClick={() => addAnswerField(questionIndex)}
+                color="info"
+                onClick={addQuestionField}
+                sx={{ mr: 2, display: showquestionButton() ? 'hide' : 'none' }}
               />
-                  
               <RemoveCircleOutlineTwoToneIcon
-          color='info'
-          variant="outlined"
-          onClick={() => removeAnswerField(questionIndex)}
-        />
+                color="info"
+                onClick={removeQuestionField}
+              />
+              <Box
+                sx={{
+                  maxHeight: '40vh',
+                  overflow: 'auto',
+                }}
+              >
+                {field.answers.map((answer, answerIndex) => (
+                  <Box sx={{ ml: 3, mt: 4 }} key={answerIndex}>
+                    <Typography sx={{ fontSize: 14 }}>{`Answer ${
+                      answerIndex + 1
+                    }`}</Typography>
+                    <Input
+                      sx={{ fontSize: 16, mt: 1, width: 300 }}
+                      multiline
+                      minRows={1}
+                      maxRows={10}
+                      fullWidth={false}
+                      value={answer}
+                      placeholder="Add answer"
+                      onChange={(e) =>
+                        updateAnswer(questionIndex, answerIndex, e.target.value)
+                      }
+                    />
+                  </Box>
+                ))}
+                <AddCircleOutlineOutlinedIcon
+                  color="info"
+                  sx={{
+                    ml: 3,
+                    mr: 2,
+                    mt: 3,
+                    display: showAnswerButton(questionIndex) ? 'hide' : 'none',
+                  }}
+                  variant="outlined"
+                  onClick={() => addAnswerField(questionIndex)}
+                />
+                <RemoveCircleOutlineTwoToneIcon
+                  color="info"
+                  variant="outlined"
+                  onClick={() => removeAnswerField(questionIndex)}
+                />{' '}
+              </Box>
             </div>
           ))}
         </Card>
-        <Button sx={{mt:3}}
-          size="large"
-          variant="outlined"
-        >
+        <Button sx={{ mt: 3 }} size="large" variant="outlined">
           Sumbit
         </Button>
-        </Grid>
-      </Grid>
+      </Box>
     </Box>
   );
 }

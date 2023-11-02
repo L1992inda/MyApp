@@ -1,6 +1,6 @@
 'use client';
 
-import SetquestionsAndAnswers from './setPoll';
+import SetquestionsAndAnswers from './setquestionsAndAnswers';
 
 export default function PollFields() {
   return (

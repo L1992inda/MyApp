@@ -10,7 +10,7 @@ export default function CardActionPoll() {
     return (
         <Card sx={{ maxWidth: 240, borderRadius:4,boxShadow:20 }}>
       <CardActionArea 
-            href="./setupPoll"
+            href="./setupPollPage"
             sx={{ backgroundColor:"#fffcf6"}}
 
           >
